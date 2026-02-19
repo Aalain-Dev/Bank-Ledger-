@@ -1,5 +1,9 @@
-const express = require("express")
+require("dotenv").config();
+const express = require("express");
 
-const app = express()
+const connectDB = require("./config/db");
+connectDB();
 
-module.exports = app
+const app = express();
+
+module.exports = app;
