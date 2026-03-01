@@ -1,0 +1,6 @@
+learned what is compound indexing 
+- this is basically indexing 2 fields at a time
+
+2. learned how to create a relaion like we don in sql using fk so here mongoose.objectId is used 
+
+3. 
