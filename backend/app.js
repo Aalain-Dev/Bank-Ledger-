@@ -1,17 +1,22 @@
 require("dotenv").config();
 const cookie = require("cookie-parser");
 const express = require("express");
-const authRouter = require ("./routes/auth.routes");
+const authRouter = require("./routes/auth.routes");
+const accountRouter = require("./routes/account.routes");
+const errorHandler = require("./middleware/errorHandler");
 const connectDB = require("./config/db");
 connectDB();
 
-
 const app = express();
 
-
 app.use(express.json());
-app.use("/api/auth", authRouter);
 app.use(cookie());
 
+// Routes
+app.use("/api/auth", authRouter);
+app.use("/api/account", accountRouter);
+
+// Global error handler (must be after all routes)
+app.use(errorHandler);
 
 module.exports = app;
