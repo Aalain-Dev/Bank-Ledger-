@@ -3,7 +3,6 @@ const cookie = require("cookie-parser");
 const express = require("express");
 const authRouter = require("./routes/auth.routes");
 const accountRouter = require("./routes/account.routes");
-const errorHandler = require("./middleware/errorHandler");
 const connectDB = require("./config/db");
 connectDB();
 
@@ -15,8 +14,5 @@ app.use(cookie());
 // Routes
 app.use("/api/auth", authRouter);
 app.use("/api/account", accountRouter);
-
-// Global error handler (must be after all routes)
-app.use(errorHandler);
 
 module.exports = app;

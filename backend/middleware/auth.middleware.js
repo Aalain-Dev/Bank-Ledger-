@@ -2,7 +2,7 @@ const usermodelschema = require("../models/user.model");
 const jwt = require("jsonwebtoken");
 
 const authMiddleware = async(req,res,next) => {
-     const token = req.cookies.token || req.header.authorization?.replace("Bearer ", "");
+     const token = req.cookies.token || req.headers.authorization?.replace("Bearer ", "");
     if(!token){
         return res.status(401).json({
             message:"Unauthorized access",

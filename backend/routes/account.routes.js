@@ -1,8 +1,10 @@
-const route = require('express').Router();
+const route = require("express").Router();
+const { createAccount } = require("../controller/accountcontroller");
+const auth = require("../middleware/auth.middleware");
 
-route.get("");
-route.post("");
-route.patch("");
-route.delete("");
+route.post("/create", auth, createAccount);
+route.get("", auth);
+route.patch("", auth);
+route.delete("", auth);
 
-module.exports =  route;
+module.exports = route;
