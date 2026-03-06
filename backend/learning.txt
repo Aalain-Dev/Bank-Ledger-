@@ -3,4 +3,6 @@ learned what is compound indexing
 
 2. learned how to create a relaion like we don in sql using fk so here mongoose.objectId is used 
 
-3. 
+3. learned what is aggregation pipeline 
+
+4. learned mongoose.startsession and how to use 
