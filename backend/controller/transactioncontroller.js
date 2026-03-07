@@ -103,6 +103,35 @@ const createTransaction = async (req, res) => {
   } catch (e) {
     return res.status(500).json({ message: "Internal server error" });
   }
+  await sendEmailNotification(req.user.email,req.user.name,toAccountEmail, amount); {
+ return res.status(201).json(
+  {
+    messsage :"transaction created successfully",
+    transaction : transaction
+  }
+ )}
 };
 
-module.exports = { createTransaction };
+async function createInitalFundTransaction(req, res) {
+  const {toAccount,amount ,idempotencyKey} = req.body
+
+  if(!toAccount || !amount || !idempotencyKey){
+    return res.status(400).json({
+      message:"All fields are required"
+    })
+  }
+
+  const toUserAccount = await accountModel.findOne({
+    _id: toAccount
+  })
+
+  if(!toUserAccount){
+    return res.status(400
+      
+    ).json({
+      message:"Account not found"
+    })
+  }
+
+}
+module.exports = { createTransaction, createInitialFundTransaction };

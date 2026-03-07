@@ -21,7 +21,7 @@ transaction:{
     immutable: true,
 },
 type:{
-    type:string,
+    type:String,
     enum:{
         values:["DEBIT","CREDIT"]
     },
